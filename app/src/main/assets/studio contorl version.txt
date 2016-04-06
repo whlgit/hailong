@@ -1,0 +1,43 @@
+----------------------------------------
+SVN:设置
+
+1.安装SVN时，选择command line clinet tools
+
+2.studio Settings ->Version Control->Subversion
+设置General选中
+Use command line client:svn path:如 C:\Program Files\TortoiseSVN\bin\svn.exe
+
+3.忽略文件设置：
+studio 中要先设置忽略文件，再关联SVN才有效；
+Version Control->Ignored Files
+studio 中一般要忽略的：
+.idea文件夹
+.gradle文件夹
+所有的build文件夹
+所有的.iml文件
+local.properties文件
+如：
+File:Demo.iws
+File:local.properties
+Directory:.gradle/
+Directory:.idea/
+Directory:build/
+Directory:app/build
+Mask:.iml
+
+分享到SVN前配置，从SVN下载后配置标红的。
+
+4.分享到SVN方式,
+(1),Import into Subversion直接导入到SVN,本地不会关联，删除本地后SVN下载。
+
+JDK 1.8format(不出错)
+
+
+----------------------
+
+Git：设置
+
+Set:Github Account
+
+Import into Version Control->
+Share Project on Github

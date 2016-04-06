@@ -1,0 +1,7 @@
+    <ignored path="Android_HL.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".gradle/" />
+    <ignored path=".idea/" />
+    <ignored path="app/build/" />
+    <ignored mask="*.iml" />
+    <ignored path="local.properties" />
