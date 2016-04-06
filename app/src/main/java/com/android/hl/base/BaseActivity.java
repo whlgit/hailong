@@ -1,7 +1,7 @@
 package com.android.hl.base;
 
+import android.app.Activity;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -14,7 +14,7 @@ import android.widget.Toast;
  * @date  2016/4/6 14:45
  * 
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
