@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="test_bg_hl">#EE82EE</color>
+    <color name="title_bg_hl">#FAFAD2</color>
+    <color name="title_text_hl">#000000</color>
+    <color name="layout_bg_hl">#FAF0E6</color>
+    <color name="layout_text_hl">#999CE552</color>
+    <color name="item_text_hl">#999CE552</color>
+    <color name="item_edit_hl">#999CE552</color>
+    <color name="add_fragment_bg_hl">#FFFAFA</color>
 </resources>

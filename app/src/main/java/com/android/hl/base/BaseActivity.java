@@ -1,10 +1,15 @@
 package com.android.hl.base;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 /**
@@ -15,6 +20,50 @@ import android.widget.Toast;
  * 
  */
 public class BaseActivity extends Activity {
+    protected float density;
+    protected float widthPixels;
+    protected float heightPixels;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        initWindow();
+        initDisplay();
+    }
+
+    private void initWindow() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
+        // setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//强制为横屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 竖屏
+    }
+
+    private void initDisplay() {
+        DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
+        density = displayMetrics.density;
+        widthPixels = displayMetrics.widthPixels;
+        heightPixels = displayMetrics.heightPixels;
+    }
+
+    public int getWidthDisplay(int sacle, int radix) {
+        return (int) (widthPixels * getScale(sacle, radix));
+    }
+
+    public int getDisplay(float sacle) {
+        return (int) (density * sacle);
+    }
+
+    public int getHeightDisplay(int sacle, int radix) {
+        return (int) (heightPixels * getScale(sacle, radix));
+    }
+
+    private float getScale(int scale, int radix) {
+        return (float) scale / radix;
+    }
+
+    public void showToast(String text){
+        Toast.makeText(getApplicationContext(), ""+text, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
