@@ -3,8 +3,14 @@ package com.android.hl.base;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.RelativeLayout;
 
 import com.android.hl.ui.FragmentActivity;
 
@@ -13,6 +19,7 @@ public abstract class BaseFragment extends Fragment {
 			MATCH = LayoutParams.MATCH_PARENT,
 			WRAP = LayoutParams.WRAP_CONTENT;
 	protected FragmentActivity activity;
+	protected RelativeLayout sLayout;
 	protected String titleStr ="";
 	@Override
 	public void onAttach(Activity activity) {
@@ -20,9 +27,28 @@ public abstract class BaseFragment extends Fragment {
 		initTitle();
 		this.activity = (FragmentActivity) activity;
 	}
-	
+
+	protected  void initView(){}
+
+	@Nullable
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		initLayout();
+		return sLayout;
+	}
+
 	protected abstract void initTitle();
-	
+
+	protected void initLayout(){
+		sLayout = new RelativeLayout(activity);
+		RelativeLayout.LayoutParams layoutParams = getRelativeParams(
+				MATCH, MATCH);
+		sLayout.setLayoutParams(layoutParams);
+	}
+	protected RelativeLayout.LayoutParams getRelativeParams(
+			int width, int height) {
+		return new RelativeLayout.LayoutParams(width, height);
+	}
 	public class TextFragment {
 		String fragmentName;
 		int fragmentID;

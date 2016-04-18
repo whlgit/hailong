@@ -17,7 +17,6 @@ import com.android.hl.base.BaseActivity;
  */
 public class FragmentActivity extends BaseActivity {
 
-
     private RelativeLayout walletLayout;
     private FrameLayout frameLayout;
     private FragmentManager fragmentManager;
