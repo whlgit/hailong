@@ -2,7 +2,6 @@ package com.android.hl.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +41,7 @@ public class TitleIconAdapter<T extends AdapterTitleIconInterface> extends IBase
 	private void upLayoutData(int position, View convertView) {
 		T item = list.get(position);
 		holder.titleTV.setText("" + item.getTitle());
-		Log.i("whl","width:"+getWidth()+"----View_Width:"+convertView.getWidth());
+
 //		convertView.setBackgroundResource(item.getImageID());
 	}
 
