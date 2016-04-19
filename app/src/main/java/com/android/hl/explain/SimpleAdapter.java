@@ -23,7 +23,7 @@ public class SimpleAdapter extends IBaseAdapter {
 	private ViewHolder holder;
 
 	public SimpleAdapter(Context context) {
-		super.context = context;
+		super.mContext = context;
 	}
 
 	@Override
@@ -36,16 +36,16 @@ public class SimpleAdapter extends IBaseAdapter {
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
-//		AdapterInterface item = (AdapterInterface) lists.get(position);
-//		holder.titleTV.setText("" + item.getText());
+
+
 		return convertView;
 	}
 
 	private View initView() {
-		RelativeLayout layout = new RelativeLayout(context);
+		RelativeLayout layout = new RelativeLayout(mContext);
 		layout.setLayoutParams(new AbsListView.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-		holder.titleTV = new TextView(context);
+		holder.titleTV = new TextView(mContext);
 		RelativeLayout.LayoutParams tvLayoutParams = new RelativeLayout.LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		holder.titleTV.setGravity(Gravity.CENTER);

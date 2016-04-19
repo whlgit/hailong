@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.android.hl.base.BaseFragment;
 
 
-public class SimpleFragment extends BaseFragment {
+public abstract class SimpleFragment extends BaseFragment {
 	@android.support.annotation.IdRes
 	private int id_test=101;
 	private View layout;

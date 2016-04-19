@@ -26,7 +26,7 @@ public class HomeActivity extends BaseActivity{
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(HomeActivity.this,TestActivity.class));
+                startActivity(new Intent(HomeActivity.this,FragmentActivity.class));
             }
         });
     }

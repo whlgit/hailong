@@ -11,13 +11,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.hl.base.BaseActivity;
+import com.android.hl.fragment.HomeFragment;
 
 /**
  * Created by Administrator on 2016/4/14.
  */
 public class FragmentActivity extends BaseActivity {
 
-    private RelativeLayout walletLayout;
+    private RelativeLayout activityLayout;
     private FrameLayout frameLayout;
     private FragmentManager fragmentManager;
     @android.support.annotation.IdRes
@@ -25,7 +26,7 @@ public class FragmentActivity extends BaseActivity {
     private TextView titleTV;
     @android.support.annotation.IdRes
     private int TITLEID = 10016;
-    //    private HomeFragment homeFragment;
+    private HomeFragment homeFragment;
     private int title_height, padding, margin;
     private String app_name;
 //    private InsertFragment insertFragment;
@@ -35,7 +36,6 @@ public class FragmentActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         initValues();
         initLayout();
         initTitle();
@@ -63,8 +63,8 @@ public class FragmentActivity extends BaseActivity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         switch (position) {
             case 0:
-//                homeFragment = new HomeFragment();
-//                transaction.replace(FRAMEID, homeFragment);
+                homeFragment = new HomeFragment();
+                transaction.replace(FRAMEID, homeFragment);
                 break;
             case 1:
 //                insertFragment = new InsertFragment();
@@ -92,24 +92,26 @@ public class FragmentActivity extends BaseActivity {
 
     private void initTitle() {
         titleTV = new TextView(this);
-        android.widget.RelativeLayout.LayoutParams tatleParams = new RelativeLayout.LayoutParams(
+        android.widget.RelativeLayout.LayoutParams titleParams = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, title_height);
-        tatleParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-        titleTV.setBackgroundColor(Color.parseColor("#00000000"));
-        titleTV.setTextColor(Color.parseColor("#00000000"));
+        titleParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        titleTV.setBackgroundColor(Color.BLUE);
+        titleTV.setTextColor(Color.GREEN);
+//        titleTV.setBackgroundColor(Color.parseColor("#00000000"));
+//        titleTV.setTextColor(Color.parseColor("#00000000"));
         titleTV.setTextSize(20);
         titleTV.setGravity(Gravity.CENTER);
         titleTV.setId(TITLEID);
-        walletLayout.addView(titleTV, tatleParams);
+        activityLayout.addView(titleTV, titleParams);
     }
 
     private void initLayout() {
-        walletLayout = new RelativeLayout(this);
+        activityLayout = new RelativeLayout(this);
         android.widget.RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        setContentView(walletLayout, layoutParams);
+        setContentView(activityLayout, layoutParams);
         initView();
-        walletLayout.setBackgroundColor(Color.WHITE);
+        activityLayout.setBackgroundColor(Color.WHITE);
     }
 
     /**
@@ -127,8 +129,8 @@ public class FragmentActivity extends BaseActivity {
         android.widget.RelativeLayout.LayoutParams frameParams = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         frameParams.addRule(RelativeLayout.BELOW, TITLEID);
-        frameLayout.setPadding(padding, padding, padding, padding);
-        walletLayout.addView(frameLayout, frameParams);
+//        frameLayout.setPadding(padding, padding, padding, padding);
+        activityLayout.addView(frameLayout, frameParams);
         frameLayout.setBackgroundColor(Color.parseColor("#00000000"));
         frameLayout.setId(FRAMEID);
     }

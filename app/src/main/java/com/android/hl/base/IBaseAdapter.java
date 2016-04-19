@@ -5,36 +5,38 @@ import java.util.List;
 import android.content.Context;
 import android.widget.BaseAdapter;
 
-public abstract class IBaseAdapter extends BaseAdapter {
-	protected List<?> lists;
-	protected Context context;
-	public List<?> getLists() {
-		return lists;
+import com.android.hl.interfacehl.AdapterInterface;
+
+public abstract class IBaseAdapter<T extends AdapterInterface> extends BaseAdapter {
+	protected List<? extends T> list;
+	protected Context mContext;
+	public List<?  extends T> getList() {
+		return list;
 	}
 
-	public void setLists(List<?> lists) {
-		this.lists = lists;
+	public void setList(List<? extends T> lists) {
+		this.list = lists;
 	}
 
 	@Override
 	public int getCount() {
-		if (lists == null) {
+		if (list == null) {
 			return 0;
 		}
-		return lists.size();
+		return list.size();
 	}
 
 	@Override
 	public Object getItem(int position) {
-		if (lists == null) {
+		if (list == null) {
 			return null;
 		}
-		return lists.get(position);
+		return list.get(position);
 	}
 
 	@Override
 	public long getItemId(int position) {
-		if (lists == null) {
+		if (list == null) {
 			return 0;
 		}
 		return position;

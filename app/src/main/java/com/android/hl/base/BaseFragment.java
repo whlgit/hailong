@@ -3,6 +3,7 @@ package com.android.hl.base;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
@@ -28,12 +29,13 @@ public abstract class BaseFragment extends Fragment {
 		this.activity = (FragmentActivity) activity;
 	}
 
-	protected  void initView(){}
+	protected abstract void initView();
 
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		initLayout();
+		initView();
 		return sLayout;
 	}
 

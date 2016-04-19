@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
  * @Description: TODO(类的作用)展示关闭小窗口带动画的PopupWindow
  * @author WHL
  * @date 2016-3-24 上午9:19:23 Constructor：设置宽，高，用于View设置位置和动画移动距离 Method:
- *       setContentView(View contentView, Context context) context:用于设置半透明背景
+ *       setContentView(View contentView, Context mContext) mContext:用于设置半透明背景
  */
 @SuppressLint("NewApi")
 public class MovePopupWindow extends PopupWindow {
@@ -48,7 +48,7 @@ public class MovePopupWindow extends PopupWindow {
 
 	/**
 	 * @deprecated This method is deprecated and use setContentView(View
-	 *             contentView, Context context)
+	 *             contentView, Context mContext)
 	 * 
 	 */
 	@Deprecated
